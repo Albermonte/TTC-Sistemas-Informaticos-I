@@ -113,18 +113,29 @@ int CrearTiendas(tCadena *p_cadena)
 
 void LiberaMemoria(tCadena cadena)
 {
-	free(cadena.p_tiendas->p_prendas);
-	free(cadena.p_tiendas);					// Limpia memoria de p_tiendas asignada en `CrearTiendas()`
+	int i;
+	for (i = 0; i < cadena.n_tiendas; i++)
+	{
+		free(cadena.p_tiendas[i].p_prendas); // Limpia memoria de p_tiendas asignada en `IniTienda()`
+	}
+	
+	free(cadena.p_tiendas);					 // Limpia memoria de p_tiendas asignada en `CrearTiendas()`
 }
 
 int IniTiendas(tTienda *p_tiendas, int n_tiendas)
 {
 	int i;
+	int error;
 	for (i = 0; i < n_tiendas; i++)
 	{
-		p_tiendas[i]=IniTienda(&p_tiendas);
+		error=IniTienda(&p_tiendas[i]);		// Inicializa una tienda y asigna el return a error para comprobar si ha habido errores de reserva de memoria
+		if (error==-1)
+		{
+			return -1;
+		}
 	}
-	
-	return 0;
 
+	IniPrendasUnaTienda(tPrenda *p_prendas, int n_prendas);
+
+	return 0;
 }

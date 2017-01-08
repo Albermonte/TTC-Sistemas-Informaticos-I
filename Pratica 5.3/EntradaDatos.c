@@ -19,7 +19,7 @@ int IniTienda(tTienda *pTienda)
 {
 	system("cls");
 	printf("Introduce codigo de la tienda:\t");
-	scanf("%d",pTienda->codigo);
+	scanf("%d",&pTienda->codigo);
 	printf("Introduce informacion sobre contacto\n\n");
 	printf("Direccion:\t");
 	scanf("%s",pTienda->contacto.direccion);
@@ -30,12 +30,18 @@ int IniTienda(tTienda *pTienda)
 	printf("Introduce numero de prendas:\t");
 	scanf("%d",&pTienda->n_prendas);
 	if((pTienda->p_prendas=(tPrenda  *)malloc(pTienda->n_prendas*sizeof(tPrenda)))!=NULL)
-		{
+	{
 			return 0;
-		}
+	}
 	else
-		{
+	{
 			return -1;
-		}
-		
+	}	
+}
+
+void IniPrendasUnaTienda(tPrenda *p_prendas, int n_prendas)
+{
+
+
+
 }

@@ -9,5 +9,7 @@ void ErrorMemoria(tCadena cadena, char *pcadena)
 {
   printf("Error al reservar la memoria de %s\n",pcadena);
   LiberaMemoria(cadena);
+  MemoryManager_DumpMemoryLeaks();
+  system("pause");
   exit(-1);
 }

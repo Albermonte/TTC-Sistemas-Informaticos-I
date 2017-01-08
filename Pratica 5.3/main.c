@@ -28,12 +28,12 @@ main()
 					 ErrorMemoria(cadena, "las prendas");
 		           system("pause");
 		        break;
-		/*         case 3:
+		         case 3:
 		   	       //VisuTiendas(cadena.p_tiendas,cadena.n_tiendas);
 			         VisuCadena(cadena);
 			         system("pause");
 		        break;
-            case 4: //Abrir una tienda: crearla e inicializarla
+        /*    case 4: //Abrir una tienda: crearla e inicializarla
 		   	       if (AnyadirTienda(&cadena)==-1)
                   ErrorMemoria(cadena, "las tiendas");
                system("pause");
@@ -136,4 +136,14 @@ int IniTiendas(tTienda *p_tiendas, int n_tiendas)
 		}
 	}
 	return 0;
+}
+
+void VisuCadena(tCadena cadena)
+{
+	int i;
+	for (i = 0; i < cadena.n_tiendas; i++)
+	{
+		printf("Tienda %d\n\n",i+1);
+		VisuTienda(cadena.p_tiendas[i]);
+	}
 }

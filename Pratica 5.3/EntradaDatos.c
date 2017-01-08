@@ -52,14 +52,30 @@ void IniPrendasUnaTienda(tPrenda *p_prendas, int n_prendas)
 
 tPrenda IniPrenda(tPrenda prenda)
 {
+	int i, resultado;
+	char color[10];
+	char tipo[10];
 	printf("Introduzca referencia:\t");
 	scanf("%s",prenda.ref);
 	printf("Introduzca talla:\t");
 	scanf("%s",prenda.talla);
-	printf("Introduzca color (blanco, amarillo, naranja, rosa, rojo, verde, azul, morado, marrón, negro):\t");
-	scanf("%s",&prenda.color); // Esta mal
+	/*
+	printf("Introduzca color (blanco, amarillo, naranja, rosa, rojo, verde, azul, morado, marron, negro):\t");
+	
+	fgets(color[10],10,stdin);
+	color[strlen(color)-1]='\0';
+	for (i = 0; i < 10; i++)
+	{
+		resultado=strcmp(color,prenda.color[i]);
+		if (resultado==0)
+		{
+			prenda.color=i;
+		}
+	}
 	printf("Introduce tipo prenda (camiseta, camisa, pantalon, falda, vestido, zapatos, jersey, chaqueta):\t");
-	scanf("%s",&prenda.tipo); // Esta mal
+//	fgets(tipo[10],10,stdin);
+//	tipo[strlen(tipo)-1]='\0';
+	*/
 	fflush(stdin);
 	printf("Introduce h_m:\t");
 	scanf("%c",&prenda.h_m);

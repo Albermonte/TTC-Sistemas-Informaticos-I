@@ -57,9 +57,9 @@ tPrenda IniPrenda(tPrenda prenda)
 	printf("Introduzca talla:\t");
 	scanf("%s",prenda.talla);
 	printf("Introduzca color (blanco, amarillo, naranja, rosa, rojo, verde, azul, morado, marrón, negro):\t");
-	scanf("%s",&prenda.color);
+	scanf("%s",&prenda.color); // Esta mal
 	printf("Introduce tipo prenda (camiseta, camisa, pantalon, falda, vestido, zapatos, jersey, chaqueta):\t");
-	scanf("%s",&prenda.tipo);
+	scanf("%s",&prenda.tipo); // Esta mal
 	fflush(stdin);
 	printf("Introduce h_m:\t");
 	scanf("%c",&prenda.h_m);

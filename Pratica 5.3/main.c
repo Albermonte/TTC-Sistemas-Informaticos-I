@@ -129,13 +129,11 @@ int IniTiendas(tTienda *p_tiendas, int n_tiendas)
 	for (i = 0; i < n_tiendas; i++)
 	{
 		error=IniTienda(&p_tiendas[i]);		// Inicializa una tienda y asigna el return a error para comprobar si ha habido errores de reserva de memoria
+		IniPrendasUnaTienda(&p_tiendas[i].p_prendas, p_tiendas[i].n_prendas);
 		if (error==-1)
 		{
 			return -1;
 		}
 	}
-
-	IniPrendasUnaTienda(tPrenda *p_prendas, int n_prendas);
-
 	return 0;
 }

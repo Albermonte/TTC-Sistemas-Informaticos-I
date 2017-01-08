@@ -41,7 +41,30 @@ int IniTienda(tTienda *pTienda)
 
 void IniPrendasUnaTienda(tPrenda *p_prendas, int n_prendas)
 {
+	int i;
+	for (i=0; i < n_prendas; i++)
+	{
+		system("cls");
+		printf("Prenda %d:\n\n",i+1);
+		IniPrenda(p_prendas[i]);
+	}
+}
 
-
-
+tPrenda IniPrenda(tPrenda prenda)
+{
+	printf("Introduzca referencia:\t");
+	scanf("%s",prenda.ref);
+	printf("Introduzca talla:\t");
+	scanf("%s",prenda.talla);
+	printf("Introduzca color (blanco, amarillo, naranja, rosa, rojo, verde, azul, morado, marrón, negro):\t");
+	scanf("%s",&prenda.color);
+	printf("Introduce tipo prenda (camiseta, camisa, pantalon, falda, vestido, zapatos, jersey, chaqueta):\t");
+	scanf("%s",&prenda.tipo);
+	fflush(stdin);
+	printf("Introduce h_m:\t");
+	scanf("%c",&prenda.h_m);
+	printf("Introduce numero de unidades:\t");
+	scanf("%d",&prenda.n_uds);
+	printf("Introduce precio:\t");
+	scanf("%f",&prenda.precio);
 }

@@ -92,33 +92,39 @@ int CrearTiendas(tCadena *p_cadena)
 	system("cls"); // Limpiar pantalla
 	}while(numero<=0);
 	
-	if((p_cadena->p_tiendas=(tTienda *)malloc(numero*sizeof(tTienda)))!=NULL)
+	p_cadena->n_tiendas=numero; // Asigna el numero introducido antes a la estructura para usarlo después
+
+	if((p_cadena->p_tiendas=(tTienda *)malloc(numero*sizeof(tTienda)))!=NULL) // Reserva memoria para el numero de tiendas
 	{
 		printf("Introduce informacion sobre el contacto:\n");
 		printf("Direccion:\t");
-		scanf("%s",p_cadena->contacto.direccion);
+		scanf("%s",p_cadena->contacto.direccion); // Dirección
 		printf("Telefono:\t");
-		scanf("%s",p_cadena->contacto.tfno);
+		scanf("%s",p_cadena->contacto.tfno);      // Telefono
 		printf("Email:\t");
-		scanf("%s",p_cadena->contacto.e_mail);
-		return 0;
-		
+		scanf("%s",p_cadena->contacto.e_mail);    // E_Mail
+		return 0; // Devuelve 0 si la reserva de memoria ha sido correcta; p_tiendas no es = a NULL
 	}
 	else 
 	{
-		return -1;
+		return -1; // Devuelve -1 si la reserva ha sido incorrecta
 	}
 }
 
 void LiberaMemoria(tCadena cadena)
 {
 	free(cadena.p_tiendas->p_prendas);
-	free(cadena.p_tiendas);
+	free(cadena.p_tiendas);					// Limpia memoria de p_tiendas asignada en `CrearTiendas()`
 }
 
 int IniTiendas(tTienda *p_tiendas, int n_tiendas)
 {
-	IniTienda(&p_tiendas);
+	int i;
+	for (i = 0; i < n_tiendas; i++)
+	{
+		p_tiendas[i]=IniTienda(&p_tiendas);
+	}
+	
 	return 0;
 
 }
